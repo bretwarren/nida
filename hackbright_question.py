@@ -14,16 +14,16 @@
 # [5, 3, 2, 4, 5]     Not all numbers less than first
 # [11, 4, 10, 2,]     Not long enough
 
-list = [11, 4, 10, 2]
+passphrase = [11, 4, 10, 2]
 
-def passphraseTester(list):
-    isValid = True
-    length_list = len(list)
-    for i in list:
-        if i < list[0] and length_list >= 5:
-            isValid = True
-        else:
-            isValid = False
-    return isValid
+def passphraseTester(testPassphrase):
+    if len(testPassphrase) < 5: # only need to check once
+        return False; # return immediately if fail
+    listCopy = list(testPassphrase); # copy list so you don't change the passed list
+    firstItem = listCopy.pop(0); # remove first item from list copy and save it for reference
+    for i in listCopy:
+        if i >= firstItem: # check for fail, not pass
+            return False # return immediately if fail
+    return True # got here, everything passed!
 
-print(passphraseTester(list))
+print(passphraseTester(passphrase))
