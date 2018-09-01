@@ -6,7 +6,7 @@ text = open("text_sample.txt",'r').read() #hard coding for faster testing
 
 #clean text for processing - remove special characters and lower case
 def cleanText(text):
-    specialCharacters = ["...",".)","\n\n", "--","(", ")",]
+    specialCharacters = ["...",".)","\n\n", "--","(", ")",","]
     for special in specialCharacters:
         text = text.replace(special, " ")
     return text.lower()
@@ -24,7 +24,7 @@ def getSentenceCount(text):
 
 # get words in text as array
 def getWords(text):
-    text = text.replace(".","") #remove periods so that end words don't have a period appended for unique word check
+    text = text.replace("."," ") #remove periods so that end words don't have a period appended for unique word check
     return text.split()
 
 #count words in array
